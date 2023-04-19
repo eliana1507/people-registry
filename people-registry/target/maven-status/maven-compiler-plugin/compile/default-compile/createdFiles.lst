@@ -1,0 +1,5 @@
+com/example/peopleregistry/controller/PeopleController.class
+com/example/peopleregistry/model/Person.class
+com/example/peopleregistry/PeopleRegistry.class
+com/example/peopleregistry/service/PeopleService.class
+com/example/peopleregistry/model/OldestChildDto.class
