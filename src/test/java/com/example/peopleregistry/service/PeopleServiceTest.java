@@ -11,22 +11,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PeopleServiceTest {
     public static final String PNR = "199007017865";
-    PeopleService service = new PeopleService();
+    PeopleService service;
 
     @BeforeEach
     void setUp(){
-        Person marioRossi = new Person("201408093645", "Mario Rossi", "", 9, new ArrayList<>());
-        Person ilariaRossi = new Person("201512063645", "Ilaria Rossi", "", 8, new ArrayList<>());
-
-        List<Person> children = new ArrayList<>();
-        children.add(marioRossi);
-        children.add(ilariaRossi);
-
-        service.personMap.put(PNR, new Person("199007017865", "Piero Rossi",
-                "Alessandra Rossi", 33, children));
-
-        service.personMap.put("201408093645", marioRossi);
-        service.personMap.put("201512063645", ilariaRossi);
+        service = new PeopleService();
     }
 
     @Test
@@ -46,6 +35,18 @@ class PeopleServiceTest {
 
     @Test
     void getPersonByPnr() {
+        Person marioRossi = new Person("201408093645", "Mario Rossi", "", 9, new ArrayList<>());
+        Person ilariaRossi = new Person("201512063645", "Ilaria Rossi", "", 8, new ArrayList<>());
+
+        List<Person> children = new ArrayList<>();
+        children.add(marioRossi);
+        children.add(ilariaRossi);
+
+        service.personMap.put(PNR, new Person("199007017865", "Piero Rossi",
+                "Alessandra Rossi", 33, children));
+
+        service.personMap.put("201408093645", marioRossi);
+        service.personMap.put("201512063645", ilariaRossi);
         Person get = service.getPersonByPnr(PNR);
 
         assertNotNull(get);
