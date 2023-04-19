@@ -10,7 +10,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PeopleServiceTest {
-    public static final String PNR = "199007017865";
     PeopleService service;
 
     @BeforeEach
@@ -42,12 +41,12 @@ class PeopleServiceTest {
         children.add(marioRossi);
         children.add(ilariaRossi);
 
-        service.personMap.put(PNR, new Person("199007017865", "Piero Rossi",
+        service.personMap.put("199007017865", new Person("199007017865", "Piero Rossi",
                 "Alessandra Rossi", 33, children));
 
         service.personMap.put("201408093645", marioRossi);
         service.personMap.put("201512063645", ilariaRossi);
-        Person get = service.getPersonByPnr(PNR);
+        Person get = service.getPersonByPnr("199007017865");
 
         assertNotNull(get);
         assertEquals("Piero Rossi", get.getName());
