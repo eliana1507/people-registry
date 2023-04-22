@@ -9,6 +9,8 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 
+import java.util.Optional;
+
 @Path("/people")
 public class PeopleController {
     PeopleService peopleService = new PeopleService();
@@ -21,7 +23,7 @@ public class PeopleController {
     @GET
     @Produces("application/json")
     @Path("/{pnr}")
-    public Person getPerson(@PathParam("pnr") String pnr) {
+    public Optional<Person> getPerson(@PathParam("pnr") String pnr) {
         return peopleService.getPersonByPnr(pnr);
     }
 
